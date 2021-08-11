@@ -1,0 +1,18 @@
+version: "3.7"
+services:
+  notebook:
+    image: virtualion/jupyter-notebook-turicreate
+    build: .
+    user: root
+    ports:
+     - 8888:8888
+       #command: start-notebook.sh --NotebookApp.password='sha1:de160b57155c:2dd7e77366a3de532f07829a818a1d6cdbe8a182'
+       #command: start-notebook.sh --NotebookApp.password='sha1:2EBE8B36852AAE16FF7E012D2BF4896474945E25'
+       #entrypoint: /bin/sh
+      #command: -c "while :; do sleep 10; done"
+    command: jupyter notebook --allow-root --port 8888 --no-browser --ip='0.0.0.0' --NotebookApp.token='' --NotebookApp.password='argon2:$$argon2id$$v=19$$m=10240,t=10,p=8$$oHxPMbS1tPWeguCv9Lyg8g$$G9NhQvrx1TFg3fukTXPCUA'
+    volumes:
+      - ~/Documents/お勉強/SDCND復習/CarND-LaneLines-P1:/root/CarND-LaneLines-P1
+      - ~/Documents/お勉強/machine-learning/coursera-case-study:/root/coursera-case-study
+    tty: true # コンテナを起動させ続けるため
+    stdin_open: true
