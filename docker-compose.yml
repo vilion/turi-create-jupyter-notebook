@@ -14,5 +14,6 @@ services:
     volumes:
       - ~/Documents/お勉強/SDCND復習/CarND-LaneLines-P1:/root/CarND-LaneLines-P1
       - ~/Documents/お勉強/machine-learning/coursera-case-study:/root/coursera-case-study
+      - ${STUDY_MACHINE_LEARNING_DIR}:/root/coursera-andrew-ng
     tty: true # コンテナを起動させ続けるため
     stdin_open: true
